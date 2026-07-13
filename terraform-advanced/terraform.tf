@@ -6,10 +6,10 @@ terraform {
     }
   }
 
-  backend "remote" {
-    bucket = "state-lock-remote-bucket"
-    aws_dynamodb_table = "state-lock-remote-table"
-    key = "terraform.tf"
-    region = "us-east-1" 
+  backend "s3" {
+    bucket             = "state-lock-remote-bucket"
+    dynamodb_table = "state-lock-remote-table"
+    key                = "terraform.tf"
+    region             = "us-east-1"
   }
 }
