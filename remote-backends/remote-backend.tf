@@ -19,3 +19,4 @@ resource "aws_dynamodb_table" "remote_dynamoDB_table" {
     name = "LockID"
     type = "S"
   }
+}
