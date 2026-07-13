@@ -1,10 +1,10 @@
 # # Region
 
-# provider "aws" {
+provider "aws" {
 
-#         region="us-east-1"
+        region="us-east-1"
 
-# }
+}
 
 # Key Value pair
 
@@ -62,8 +62,7 @@ resource "aws_vpc_security_group_egress_rule" "allow_all_traffic" {
 
 resource "aws_instance" "my_instance" {
 
-  count = 3
-  ami   = "ami-0b6d9d3d33ba97d99" # OS AMI ID
+  ami = "ami-0b6d9d3d33ba97d99" # OS AMI ID
 
   instance_type = "t3.micro" # Instance Type
 
@@ -81,3 +80,10 @@ resource "aws_instance" "my_instance" {
     Name = "terra-automate-server"
   }
 }
+
+resource "aws_ec2_instance_state" "my_instance_state" {
+  instance_id = aws_instance.my_instance.id
+  state       = "running"
+}
+
+
