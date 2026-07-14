@@ -77,13 +77,13 @@ resource "aws_instance" "my_instance" {
   }
 
   tags = {
-    Name = "terra-automate-server"
+    Name = var.ec2_instance_name
   }
 }
 
 resource "aws_ec2_instance_state" "my_instance_state" {
   instance_id = aws_instance.my_instance.id
-  state       = "running"
+  state       = var.ec2_instance_state
 }
 
 
