@@ -72,7 +72,7 @@ resource "aws_instance" "my_instance" {
 
   # root storage (EBS)
   root_block_device {
-    volume_size = 10
+    volume_size = var.ec2_instance_volume_size
     volume_type = "gp3"
   }
 
